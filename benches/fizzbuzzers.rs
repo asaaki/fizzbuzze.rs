@@ -50,3 +50,21 @@ fn bench_ocean_moist_improved_fast(bencher: Bencher<'_, '_>) {
     });
     w.flush().unwrap();
 }
+
+#[divan::bench(name = "S1 SimpleIterForEach")]
+fn bench_simple_iterator(bencher: Bencher<'_, '_>) {
+    let mut w = sink();
+    bencher.bench_local(|| {
+        simple_iterator::run(&mut w, black_box(INPUT_RANGE));
+    });
+    w.flush().unwrap();
+}
+
+#[divan::bench(name = "S2 SimpleForLoop")]
+fn bench_simple(bencher: Bencher<'_, '_>) {
+    let mut w = sink();
+    bencher.bench_local(|| {
+        simple_for_loop::run(&mut w, black_box(INPUT_RANGE));
+    });
+    w.flush().unwrap();
+}
