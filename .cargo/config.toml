@@ -1,0 +1,12 @@
+[env]
+DIVAN_BYTES_FORMAT = "binary"
+DIVAN_SAMPLE_COUNT = "1000" # samples
+DIVAN_SAMPLE_SIZE = "1000" # iters factor
+
+[target.'cfg(all())']
+rustflags = [
+    "-Wclippy::all",
+    "-Wrust_2018_idioms",
+
+    "-Ctarget-cpu=native",
+]
