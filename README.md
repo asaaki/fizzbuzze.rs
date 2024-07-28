@@ -2,6 +2,14 @@
 
 FizzBuzz playground to try different implentations and ideas
 
+## why
+
+For the funsies.
+
+Due to an unrelated article I discoverd the referenced [Ocean-Moist Java implementation][omfb-java].
+
+Not gonna _enterprisify_ this project though.
+
 ## benchmarks
 
 ```sh
