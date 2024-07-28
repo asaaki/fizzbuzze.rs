@@ -1,7 +1,7 @@
+use crate::Int;
 use std::io::Write;
 use strum_macros::{AsRefStr, Display, IntoStaticStr};
 
-type Int = u8;
 type Predicates = [(Predicate, Value); 3];
 
 #[derive(Clone, Copy)]

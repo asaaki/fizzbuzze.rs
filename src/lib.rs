@@ -13,7 +13,7 @@ pub type Map<K, V> = indexmap::IndexMap<K, V>;
 #[cfg(all(not(feature = "indexmap"), feature = "ordered-hash-map"))]
 pub type Map<K, V> = ordered_hash_map::OrderedHashMap<K, V>;
 
-pub const INPUT_RANGE: std::ops::RangeInclusive<u8> = 1..=100;
+pub const INPUT_RANGE: std::ops::RangeInclusive<Int> = 1..=100;
 
 pub fn all() {
     let mut w = BufWriter::new(stdout());
@@ -44,6 +44,16 @@ pub fn all() {
     )
     .expect("info");
     impls::improved_om_fast::run(&mut w, INPUT_RANGE);
+    writeln!(w).expect("newline");
+    w.flush().expect("flush");
+
+    writeln!(w, "simple (for loop):").expect("info");
+    impls::simple_for_loop::run(&mut w, INPUT_RANGE);
+    writeln!(w).expect("newline");
+    w.flush().expect("flush");
+
+    writeln!(w, "simple (iter/for_each):").expect("info");
+    impls::simple_iterator::run(&mut w, INPUT_RANGE);
     writeln!(w).expect("newline");
     w.flush().expect("flush");
 }
