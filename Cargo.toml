@@ -7,6 +7,18 @@ edition = "2021"
 name = "fizzbuzzers"
 harness = false
 
+# https://fasterthanli.me/articles/why-is-my-rust-build-so-slow
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+incremental = true
+strip = true
+panic = "abort"
+
+[profile.dev.package."*"]
+opt-level = 3
+
 [features]
 default = ["indexmap"]
 indexmap = ["dep:indexmap"]
